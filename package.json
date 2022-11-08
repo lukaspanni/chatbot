@@ -1,0 +1,32 @@
+{
+  "name": "chatbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "lint": "npx eslint . --ext .ts",
+    "format": "npx prettier --config .prettierrc **/*.ts --write",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukaspanni/chatbot.git"
+  },
+  "author": "Lukas Panni",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lukaspanni/chatbot/issues"
+  },
+  "homepage": "https://github.com/lukaspanni/chatbot#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.42.1",
+    "@typescript-eslint/parser": "^5.42.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.7.1",
+    "typescript": "^4.8.4"
+  },
+  "dependencies": {
+    "rivescript": "^2.2.0"
+  }
+}
