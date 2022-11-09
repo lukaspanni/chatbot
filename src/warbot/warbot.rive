@@ -1,0 +1,31 @@
++ i (want|am interested in) (ukrainian|russian|neutral) sources [if possible]
+- <set requestedSource=<star>> Ok, I'll remember that.
+
++ i support [the] (ukrainian|russian) (side|army|forces|troops)
+- <set requestedSource=<star>> Ok, I'll remember that.
+
++ i do not believe in (ukrainian|russian) sources
+* <star> == ukrainian => <set requestedSource=russian> Ok, I'll try to kepp that in mind.
+* <star> == russian => <set requestedSource=ukrainian> Ok, I'll try to kepp that in mind.
+- <set requestedSource=neutral> Ok, I'll try to kepp that in mind.
+
+
++ how many civilians [have] died [in the war]
+* <get requestedSource> != undefined => <set requestedData=civilians> <call>getCasualties</call>
+- Are you interested in data from a neutral source?
+
++ (yes|no)
+% are you interested in data from a neutral source
+* <star> == yes =>  <set requestedSource=neutral> <set requestedData=civilians> <call>getCasualties</call>
+* <star> == no =>  <set requestedSource=ukrainian> <set requestedData=civilians> <call>getCasualties</call>
+- I'm sorry, I didn't understand that.
+
+
++ how many (russian|ukrainian) soldiers [have] died [in the war]
+* <get requestedSource> != undefined => <set requestedData=<star>><call>getCasualties</call>
+- <set requestedData=<star>> What are your views on the war?
+
++ i support [the] (ukrainian|russian) (side|army|forces|troops)
+% what are your views on the war
+* <star> == ukrainian => <set requestedSource=ukrainian> <call>getCasualties</call>
+* <star> == russian => <set requestedSource=russian> <call>getCasualties</call>

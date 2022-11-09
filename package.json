@@ -6,7 +6,9 @@
   "scripts": {
     "lint": "npx eslint . --ext .ts",
     "format": "npx prettier --config .prettierrc **/*.ts --write",
-    "build": "tsc"
+    "clean": "rm -rf dist/",
+    "build": "npm run clean && tsc && cp -r src/warbot ./dist/warbot && cp -r src/eliza ./dist/eliza",
+    "start": "node --experimental-specifier-resolution=node --no-warnings dist/index.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +21,8 @@
   },
   "homepage": "https://github.com/lukaspanni/chatbot#readme",
   "devDependencies": {
+    "@types/jsdom": "^20.0.1",
+    "@types/node": "^18.11.9",
     "@typescript-eslint/eslint-plugin": "^5.42.1",
     "@typescript-eslint/parser": "^5.42.1",
     "eslint-config-prettier": "^8.5.0",
@@ -27,6 +31,9 @@
     "typescript": "^4.8.4"
   },
   "dependencies": {
+    "axios": "^1.1.3",
+    "jsdom": "^20.0.2",
     "rivescript": "^2.2.0"
-  }
+  },
+  "type": "module"
 }
